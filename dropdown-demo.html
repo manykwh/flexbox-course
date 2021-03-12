@@ -1,0 +1,98 @@
+<!-- a lot of notes here -->
+<!-- https://www.w3schools.com/howto/howto_js_dropdown.asp -->
+<!-- https://subscription.packtpub.com/book/web_development/9781849695442/1/ch01lvl1sec13/changing-your-navigation-with-media-queries -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>nonsense</title>
+<style>
+@media screen and ( max-width: 800px ) {
+	.dropbtn {
+		background-color: yellow;
+	}
+	.navbar-logo {
+		display: none;
+	}
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	.dropdown-content {
+		display: none;
+		position: absolute;
+	}
+	.show {
+		display: block;
+	}
+}
+
+@media screen and ( min-width: 801px ) {
+	body {
+		padding: 0;
+		margin: 0;
+	}
+	.dropbtn {
+		background-color: yellow;
+		display: none;
+	}
+	.navbar-logo {
+		justify-content: center;
+		padding: 5px;	
+	}
+	.dropdown {
+		
+	}
+	.dropdown-content {
+		display: flex;
+		flex-direcition: row;
+		background-color: blue;
+		color: red;
+	}
+	.dropdown-content_element {
+		padding: 5px;
+		color: orange;
+		background-color: yellow;
+		justify-content: center;		
+	}
+	.dropdown-content_last-element {
+		
+		margin-left: auto;
+		background-color: yellow;
+		padding: 5px;
+
+	}
+}
+</style>
+<script>
+function myFunction() {
+	document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for ( i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+}
+
+</script>
+	</head>
+	<body>
+		<div class="dropdown">
+			<button onclick="myFunction()" class="dropbtn">X</button>
+			<div id="myDropdown" class="dropdown-content">
+				<div class="navbar-logo"><b>X</b></div>
+				<div class="dropdown-content_element"><a href="#">Link 1</a></div>
+				<div class="dropdown-content_element"><a href="#">Link 2</a></div>
+				<div class="dropdown-content_last-element"><a href="#">Link 3</a></div>	
+			</div>
+		</div>
+	</body>
+</html>
